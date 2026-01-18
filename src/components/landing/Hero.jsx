@@ -4,8 +4,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import banner1 from "../../../public/ico6.jpg"
 import banner2 from "../../../public/ico2.jpg"
-import banner3 from "../../../public/gadget5.jpg"
-import banner4 from "../../../public/ico3.jpg"
+import banner3 from "../../../public/new1.jpg"
+import banner4 from "../../../public/gadget1.avif"
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

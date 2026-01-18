@@ -1,14 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-
+import bgImage from "../../../public/ico7.jpg"
 export default function LoginPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirectUrl = searchParams.get('redirect') || '/items';
-  
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -29,31 +26,17 @@ export default function LoginPage() {
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     if (formData.email === VALID_EMAIL && formData.password === VALID_PASSWORD) {
-      // ✅ Set BOTH cookies for compatibility
+      // Set cookie with expiry (7 days)
       const expiryDate = new Date();
       expiryDate.setDate(expiryDate.getDate() + 7);
-      
-      // Primary cookie (for middleware)
-      document.cookie = `auth=true; path=/; expires=${expiryDate.toUTCString()}; SameSite=Lax`;
-      
-      // Secondary cookie (for client-side checks)
-      document.cookie = `isLoggedIn=true; path=/; expires=${expiryDate.toUTCString()}; SameSite=Lax`;
+      document.cookie = `auth=true; path=/; expires=${expiryDate.toUTCString()}`;
       
       // Store user info in localStorage
-      localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("user", JSON.stringify({ email: formData.email }));
-      
-      console.log("✅ Login successful - Cookies set");
-      console.log("Redirecting to:", redirectUrl);
       
       // Success notification
       alert("✅ Login successful!");
-      
-      // Small delay before redirect
-      setTimeout(() => {
-        router.push(redirectUrl);
-        router.refresh();
-      }, 300);
+      router.push("/add-item");
     } else {
       setError("Invalid email or password. Please try again.");
     }

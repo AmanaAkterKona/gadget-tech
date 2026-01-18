@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react"; // Suspense ইমপোর্ট করা হয়েছে
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function AddItemPage() {
+// মূল ফর্ম লজিকটি আলাদা কম্পোনেন্টে রাখা হয়েছে
+function AddItemContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   
@@ -21,29 +22,23 @@ export default function AddItemPage() {
     rating: "",
   });
 
-  // Check authentication on mount - শুধু একবার
   useEffect(() => {
     checkAuth();
     fetchCategories();
-  }, []); // Empty dependency array - শুধু একবার চলবে
+  }, []);
 
   const checkAuth = () => {
-    // Cookie থেকে authentication check করুন
     const cookies = document.cookie.split(';');
     const isLoggedIn = cookies.some(cookie => 
       cookie.trim().startsWith('isLoggedIn=true')
     );
     
-    console.log('Auth check:', isLoggedIn); // Debug জন্য
-    
     if (!isLoggedIn) {
-      console.log('Not logged in, redirecting...');
       alert('⚠️ Please login first to add items!');
       router.push('/login?redirect=/add-item');
       return;
     }
     
-    console.log('User is authenticated');
     setIsAuthenticated(true);
     setAuthChecked(true);
   };
@@ -52,9 +47,7 @@ export default function AddItemPage() {
     try {
       const response = await fetch('/api/items');
       const result = await response.json();
-      
       if (result.success) {
-        // Extract unique categories
         const uniqueCategories = [...new Set(result.data.map((item) => item.category))];
         setCategories(uniqueCategories);
       }
@@ -70,15 +63,12 @@ export default function AddItemPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validation
     if (!formData.title || !formData.price || !formData.category || !formData.description) {
       alert('⚠️ Please fill all required fields!');
       return;
     }
 
     setLoading(true);
-
     const newItem = {
       title: formData.title,
       price: parseFloat(formData.price),
@@ -94,43 +84,25 @@ export default function AddItemPage() {
     try {
       const response = await fetch('/api/items', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newItem)
       });
-
       const result = await response.json();
 
       if (result.success) {
         alert('✅ Item successfully added!');
-        
-        // Form reset করুন
-        setFormData({
-          title: "",
-          price: "",
-          category: "",
-          image: "",
-          description: "",
-          rating: "",
-        });
-
-        // Items page এ redirect করুন
-        setTimeout(() => {
-          router.push('/items');
-        }, 500);
+        setFormData({ title: "", price: "", category: "", image: "", description: "", rating: "" });
+        setTimeout(() => router.push('/items'), 500);
       } else {
         alert('❌ Error: ' + result.error);
       }
     } catch (error) {
-      console.error('Error adding item:', error);
-      alert('❌ Failed to add item. Please try again.');
+      alert('❌ Failed to add item.');
     } finally {
       setLoading(false);
     }
   };
 
-  // যদি authentication check না হয়ে থাকে তাহলে loading দেখান
   if (!authChecked) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -142,31 +114,21 @@ export default function AddItemPage() {
     );
   }
 
-  // যদি authenticated না হয় তাহলে কিছু রেন্ডার করবেন না
-  if (!isAuthenticated) {
-    return null;
-  }
+  if (!isAuthenticated) return null;
 
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-4">
       <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-10">
-        {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
             Add <span className="text-purple-600">New Item</span>
           </h1>
-          <p className="text-gray-500 text-lg">
-            Fill out the details to add a premium product
-          </p>
+          <p className="text-gray-500 text-lg">Fill out the details to add a premium product</p>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Title */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Product Title *
-            </label>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">Product Title *</label>
             <input
               type="text"
               name="title"
@@ -178,12 +140,9 @@ export default function AddItemPage() {
             />
           </div>
 
-          {/* Price & Rating */}
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Price ($) *
-              </label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Price ($) *</label>
               <input
                 type="number"
                 name="price"
@@ -197,9 +156,7 @@ export default function AddItemPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Rating (0 - 5)
-              </label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Rating (0 - 5)</label>
               <input
                 type="number"
                 step="0.1"
@@ -214,11 +171,8 @@ export default function AddItemPage() {
             </div>
           </div>
 
-          {/* Category */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Category *
-            </label>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">Category *</label>
             <select
               name="category"
               required
@@ -234,20 +188,15 @@ export default function AddItemPage() {
             >
               <option value="">Select a category</option>
               {categories.map((cat) => (
-                <option key={cat} value={cat} className="capitalize">
-                  {cat}
-                </option>
+                <option key={cat} value={cat} className="capitalize">{cat}</option>
               ))}
               <option value="other">Other (Custom)</option>
             </select>
           </div>
 
-          {/* Custom Category Input (if 'other' is selected) */}
           {formData.category === 'other' && (
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Custom Category *
-              </label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Custom Category *</label>
               <input
                 type="text"
                 name="category"
@@ -259,11 +208,8 @@ export default function AddItemPage() {
             </div>
           )}
 
-          {/* Image */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Image URL
-            </label>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">Image URL</label>
             <input
               type="url"
               name="image"
@@ -272,31 +218,10 @@ export default function AddItemPage() {
               placeholder="https://example.com/image.jpg"
               className="w-full px-6 py-4 rounded-2xl border border-gray-300 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all text-gray-900 placeholder-gray-400 font-medium"
             />
-            <p className="text-xs text-gray-500 mt-2">
-              Leave empty to use placeholder image
-            </p>
           </div>
 
-          {/* Image Preview */}
-          {formData.image && (
-            <div className="mt-4">
-              <p className="text-sm font-semibold text-gray-700 mb-2">Image Preview:</p>
-              <img 
-                src={formData.image} 
-                alt="Preview" 
-                className="w-32 h-32 object-cover rounded-xl border-2 border-gray-300"
-                onError={(e) => {
-                  e.target.src = "https://via.placeholder.com/400";
-                }}
-              />
-            </div>
-          )}
-
-          {/* Description */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Product Description *
-            </label>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">Product Description *</label>
             <textarea
               name="description"
               required
@@ -308,23 +233,14 @@ export default function AddItemPage() {
             />
           </div>
 
-          {/* Buttons */}
           <div className="flex gap-4 pt-4">
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              className="flex-1 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-lg disabled:opacity-50"
             >
-              {loading ? (
-                <span className="flex items-center justify-center gap-2">
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                  Adding...
-                </span>
-              ) : (
-                'Add Item'
-              )}
+              {loading ? 'Adding...' : 'Add Item'}
             </button>
-            
             <button
               type="button"
               onClick={() => router.push('/items')}
@@ -336,5 +252,18 @@ export default function AddItemPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+// মেইন পেজ যা Suspense দিয়ে র‍্যাপ করা
+export default function AddItemPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+      </div>
+    }>
+      <AddItemContent />
+    </Suspense>
   );
 }

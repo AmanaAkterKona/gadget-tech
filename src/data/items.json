@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "title": "iPhone 14 Pro",
+    "description": "Latest Apple iPhone 14 Pro with A16 Bionic chip, 6.1-inch Super Retina XDR display, and 48MP camera.",
+    "price": 999,
+    "category": "phone",
+    "image": "https://i.ibb.co.com/ZpZc66mx/i-Phone-14-Pro.avif",
+    "rating": { "rate": 4.8, "count": 320 }
+  },
+  {
+    "id": 2,
+    "title": "Samsung Galaxy S23",
+    "description": "Samsung Galaxy S23 smartphone with Snapdragon 8 Gen 2, 120Hz AMOLED display, and triple-lens camera system.",
+    "price": 899,
+    "category": "phone",
+    "image": "https://i.ibb.co.com/7x4cMGWg/Samsung-Galaxy-S23.jpg",
+    "rating": { "rate": 4.6, "count": 250 }
+  },
+  {
+    "id": 3,
+    "title": "Google Pixel 8",
+    "description": "Google Pixel 8 with Tensor G3 chip, 6.2-inch OLED display, and advanced computational photography features.",
+    "price": 799,
+    "category": "phone",
+    "image": "https://i.ibb.co.com/k26CXZGB/Google-Pixel-8.jpg",
+    "rating": { "rate": 4.5, "count": 180 }
+  },
+  {
+    "id": 4,
+    "title": "Apple Watch Series 9",
+    "description": "Apple Watch Series 9 with blood oxygen sensor, ECG, always-on Retina display, and cellular connectivity.",
+    "price": 399,
+    "category": "watch",
+    "image": "https://i.ibb.co.com/pr5zYKwR/Apple-Watch-Series-9.jpg",
+    "rating": { "rate": 4.9, "count": 210 }
+  },
+  {
+    "id": 5,
+    "title": "Samsung Galaxy Watch 6",
+    "description": "Samsung Galaxy Watch 6 with BioActive Sensor, fitness tracking, and customizable watch faces.",
+    "price": 349,
+    "category": "watch",
+    "image": "https://i.ibb.co.com/Xr473Qw3/Samsung-Galaxy-Watch-6.jpg",
+    "rating": { "rate": 4.7, "count": 150 }
+  },
+  {
+    "id": 6,
+    "title": "Apple iPad Pro 12.9",
+    "description": "Apple iPad Pro 12.9-inch with M2 chip, Liquid Retina XDR display, and Apple Pencil support.",
+    "price": 1099,
+    "category": "ipad",
+    "image": "https://i.ibb.co.com/39nt1D0p/Apple-i-Pad-Pro-12-9.jpg",
+    "rating": { "rate": 4.8, "count": 190 }
+  },
+  {
+    "id": 7,
+    "title": "iPad Air 5",
+    "description": "Apple iPad Air 5 with M1 chip, 10.9-inch Liquid Retina display, Touch ID, and wide color support.",
+    "price": 599,
+    "category": "ipad",
+    "image": "https://i.ibb.co.com/jkq45Pj2/Mac-Book-Air-M2.jpg",
+    "rating": { "rate": 4.6, "count": 170 }
+  },
+  {
+    "id": 8,
+    "title": "MacBook Air M2",
+    "description": "Apple MacBook Air with M2 chip, 13.6-inch Retina display, fanless design, and up to 18 hours battery life.",
+    "price": 1199,
+    "category": "laptop",
+    "image": "https://i.ibb.co.com/jkq45Pj2/Mac-Book-Air-M2.jpg",
+    "rating": { "rate": 4.9, "count": 300 }
+  },
+  {
+    "id": 9,
+    "title": "MacBook Pro 14 M2 Pro",
+    "description": "Apple MacBook Pro 14-inch with M2 Pro chip, Liquid Retina XDR display, and advanced thermal system.",
+    "price": 1999,
+    "category": "laptop",
+    "image": "https://i.ibb.co.com/XfmTwXMf/Mac-Book-Pro-14-M2-Pro.jpg",
+    "rating": { "rate": 4.9, "count": 220 }
+  },
+  {
+    "id": 10,
+    "title": "Dell XPS 13",
+    "description": "Dell XPS 13 laptop with Intel 13th Gen i7, 13.4-inch InfinityEdge display, and premium aluminum chassis.",
+    "price": 1099,
+    "category": "laptop",
+    "image": "https://i.ibb.co.com/PGFJpr3c/Dell-XPS-13.jpg",
+    "rating": { "rate": 4.7, "count": 180 }
+  },
+  {
+    "id": 11,
+    "title": "HP Spectre x360",
+    "description": "HP Spectre x360 2-in-1 laptop with Intel i7, 16GB RAM, 512GB SSD, and touchscreen display.",
+    "price": 1299,
+    "category": "laptop",
+    "image": "https://i.ibb.co.com/fddkFLpH/HP-Spectre-x360.jpg",
+    "rating": { "rate": 4.6, "count": 150 }
+  },
+  {
+    "id": 12,
+    "title": "Sony WH-1000XM5",
+    "description": "Sony wireless noise-cancelling headphones with 30 hours battery, high-resolution audio, and adaptive sound control.",
+    "price": 399,
+    "category": "headphones",
+    "image": "https://i.ibb.co.com/yBgwpLyR/Sony-WH-1000-XM5.jpg",
+    "rating": { "rate": 4.8, "count": 200 }
+  },
+  {
+    "id": 13,
+    "title": "Bose QuietComfort 45",
+    "description": "Bose QuietComfort 45 headphones with world-class noise cancellation and balanced audio performance.",
+    "price": 329,
+    "category": "headphones",
+    "image": "https://i.ibb.co.com/0y7gXBC1/Bose-Quiet-Comfort-45.jpg",
+    "rating": { "rate": 4.7, "count": 180 }
+  },
+  {
+    "id": 14,
+    "title": "Apple Watch SE 2",
+    "description": "Affordable Apple Watch SE 2 with fitness tracking, heart rate monitoring, and sleek design.",
+    "price": 249,
+    "category": "watch",
+    "image": "https://i.ibb.co.com/DFJnrZS/Apple-Watch-SE-2.jpg",
+    "rating": { "rate": 4.5, "count": 120 }
+  },
+  {
+    "id": 15,
+    "title": "Samsung Galaxy Tab S9",
+    "description": "Samsung Galaxy Tab S9 tablet with Snapdragon 8 Gen 2, AMOLED display, and S-Pen support.",
+    "price": 649,
+    "category": "tablet",
+    "image": "https://i.ibb.co.com/PsjrZ3gr/Samsung-Galaxy-Tab-S9.jpg",
+    "rating": { "rate": 4.6, "count": 100 }
+  },
+  {
+    "id": 16,
+    "title": "iPad Mini 6",
+    "description": "Apple iPad Mini 6 with A15 Bionic, 8.3-inch Liquid Retina display, Apple Pencil support, and portable design.",
+    "price": 499,
+    "category": "ipad",
+    "image": "https://i.ibb.co.com/fdV7T0Qy/i-Pad-Mini-6.jpg",
+    "rating": { "rate": 4.7, "count": 130 }
+  },
+  {
+    "id": 17,
+    "title": "Lenovo ThinkPad X1 Carbon",
+    "description": "Lenovo ThinkPad X1 Carbon laptop with Intel i7, 16GB RAM, 1TB SSD, and military-grade durability.",
+    "price": 1499,
+    "category": "laptop",
+    "image": "https://i.ibb.co.com/VpSV82jv/Lenovo-Think-Pad-X1-Carbon.jpg",
+    "rating": { "rate": 4.8, "count": 170 }
+  },
+  {
+    "id": 18,
+    "title": "Asus ROG Zephyrus G14",
+    "description": "Asus gaming laptop with AMD Ryzen 9, 16GB RAM, 1TB SSD, and NVIDIA RTX 4060 for gaming and content creation.",
+    "price": 1599,
+    "category": "laptop",
+    "image": "https://i.ibb.co.com/7tyy6D7B/Asus-ROG-Zephyrus-G14.jpg",
+    "rating": { "rate": 4.7, "count": 140 }
+  },
+  {
+    "id": 19,
+    "title": "OnePlus 11",
+    "description": "OnePlus 11 smartphone with Snapdragon 8 Gen 2, 120Hz Fluid AMOLED display, and fast charging support.",
+    "price": 699,
+    "category": "phone",
+    "image": "https://i.ibb.co.com/nMMk8z6Y/One-Plus-11.jpg",
+    "rating": { "rate": 4.6, "count": 160 }
+  },
+  {
+    "id": 20,
+    "title": "Xiaomi 13 Pro",
+    "description": "Xiaomi 13 Pro with Snapdragon 8 Gen 2, 6.73-inch AMOLED display, and Leica optics camera system.",
+    "price": 799,
+    "category": "phone",
+    "image": "https://i.ibb.co.com/4wgQtN1y/Xiaomi-13-Pro.jpg",
+    "rating": { "rate": 4.5, "count": 120 }
+  },
+  {
+    "id": 21,
+    "title": "Garmin Forerunner 965",
+    "description": "Garmin Forerunner 965 GPS running watch with heart rate monitor, long battery life, and activity tracking.",
+    "price": 599,
+    "category": "watch",
+    "image": "https://i.ibb.co.com/gLkD1F3r/Garmin-Forerunner-965.jpg",
+    "rating": { "rate": 4.7, "count": 90 }
+  },
+  {
+    "id": 22,
+    "title": "Apple MacBook Pro 16 M2 Max",
+    "description": "Apple MacBook Pro 16-inch with M2 Max chip, Liquid Retina XDR display, and up to 64GB RAM for heavy workloads.",
+    "price": 3499,
+    "category": "laptop",
+    "image": "https://i.ibb.co.com/G3FVRj3d/Apple-Mac-Book-Pro-16-M2-Max.jpg",
+    "rating": { "rate": 4.9, "count": 140 }
+  },
+  {
+    "id": 23,
+    "title": "Samsung Galaxy Watch 5 Pro",
+    "description": "Samsung Galaxy Watch 5 Pro with advanced fitness tracking, long battery life, and premium titanium case.",
+    "price": 449,
+    "category": "watch",
+    "image": "https://i.ibb.co.com/v4jCw1f7/Samsung-Galaxy-Watch-5-Pro.jpg",
+    "rating": { "rate": 4.8, "count": 110 }
+  },
+  {
+    "id": 24,
+    "title": "Lenovo Yoga 9i",
+    "description": "Lenovo Yoga 9i 2-in-1 laptop with Intel i7, 16GB RAM, 512GB SSD, and touchscreen 4K display.",
+    "price": 1399,
+    "category": "laptop",
+    "image": "https://i.ibb.co.com/Y78WW37P/Lenovo-Yoga-9i.jpg",
+    "rating": { "rate": 4.7, "count": 130 }
+  },
+  {
+    "id": 25,
+    "title": "iPad Pro 11",
+    "description": "Apple iPad Pro 11-inch with M2 chip, ProMotion display, and Face ID for secure login.",
+    "price": 899,
+    "category": "ipad",
+    "image": "https://i.ibb.co.com/XkVKKs6g/i-Pad-Pro-11.jpg",
+    "rating": { "rate": 4.8, "count": 150 }
+  },
+  {
+    "id": 26,
+    "title": "Samsung Galaxy Tab S8",
+    "description": "Samsung Galaxy Tab S8 with Snapdragon 8 Gen 1, 11-inch LCD display, and S-Pen included.",
+    "price": 649,
+    "category": "tablet",
+    "image": "https://i.ibb.co.com/358st6X8/Samsung-Galaxy-Tab-S8.jpg",
+    "rating": { "rate": 4.6, "count": 100 }
+  },
+  {
+    "id": 27,
+    "title": "Google Pixel Watch",
+    "description": "Google Pixel Watch with heart rate sensor, Fitbit integration, and Google Assistant support.",
+    "price": 349,
+    "category": "watch",
+    "image": "https://i.ibb.co.com/LV8gW3V/Google-Pixel-Watch.jpg",
+    "rating": { "rate": 4.5, "count": 80 }
+  },
+  {
+    "id": 28,
+    "title": "Dell Inspiron 16",
+    "description": "Dell Inspiron 16 laptop with Intel i5, 16GB RAM, 512GB SSD, ideal for students and professionals.",
+    "price": 899,
+    "category": "laptop",
+    "image": "https://i.ibb.co.com/LzK7qgt7/Dell-Inspiron-16.jpg",
+    "rating": { "rate": 4.6, "count": 120 }
+  },
+  {
+    "id": 29,
+    "title": "Asus ZenBook 14",
+    "description": "Asus ZenBook 14 laptop with AMD Ryzen 7, 16GB RAM, 512GB SSD, ultra-slim and lightweight design.",
+    "price": 1099,
+    "category": "laptop",
+    "image": "https://i.ibb.co.com/8nCk0wQY/Asus-Zen-Book-14.jpg",
+    "rating": { "rate": 4.7, "count": 140 }
+  },
+  {
+    "id": 30,
+    "title": "Apple AirPods Pro 2",
+    "description": "Apple AirPods Pro 2 with active noise cancellation, spatial audio, and improved battery life.",
+    "price": 249,
+    "category": "headphones",
+    "image": "https://i.ibb.co.com/qYD4dHHv/Apple-Air-Pods-Pro-2.jpg",
+    "rating": { "rate": 4.8, "count": 210 }
+  }
+]

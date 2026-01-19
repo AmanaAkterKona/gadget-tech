@@ -38,10 +38,38 @@ export default function LoginPage() {
       
       // Success notification
       alert("✅ Login successful!");
-      router.push("/add-item");
+      router.push("/"); // Home page e redirect
     } else {
       setError("Invalid email or password. Please try again.");
     }
+
+    setIsLoading(false);
+  };
+
+  // Auto-fill demo credentials and login
+  const handleDemoLogin = async () => {
+    setFormData({
+      email: "admin@gadgettech.com",
+      password: "admin123"
+    });
+    
+    setError("");
+    setIsLoading(true);
+
+    // Simulate API delay
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    // Set cookie with expiry (7 days)
+    const expiryDate = new Date();
+    expiryDate.setDate(expiryDate.getDate() + 7);
+    document.cookie = `auth=true; path=/; expires=${expiryDate.toUTCString()}`;
+    
+    // Store user info in localStorage
+    localStorage.setItem("user", JSON.stringify({ email: "admin@gadgettech.com" }));
+    
+    // Success notification
+    alert("✅ Demo login successful!");
+    router.push("/"); // Home page e redirect
 
     setIsLoading(false);
   };
@@ -101,31 +129,37 @@ export default function LoginPage() {
             </p>
           </div>
 
-          {/* Demo Credentials Info */}
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
-            <div className="flex items-start gap-3">
-              <svg
-                className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <div className="text-sm">
-                <p className="font-semibold text-blue-900 mb-1">Demo Credentials</p>
-                <p className="text-blue-700">
-                  <span className="font-medium">Email:</span> admin@gadgettech.com
-                </p>
-                <p className="text-blue-700">
-                  <span className="font-medium">Password:</span> admin123
-                </p>
-              </div>
+          {/* Demo Credentials Button */}
+          <button
+            onClick={handleDemoLogin}
+            disabled={isLoading}
+            className="w-full mb-6 px-4 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+            Try Demo Login (One Click)
+          </button>
+
+          {/* Divider */}
+          <div className="relative mb-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-4 bg-white text-gray-500 font-medium">
+                Or sign in with credentials
+              </span>
             </div>
           </div>
 
@@ -164,7 +198,7 @@ export default function LoginPage() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Enter your email"
+                placeholder="admin@gadgettech.com"
                 className="w-full px-4 py-3.5 rounded-xl border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all text-gray-900 placeholder-gray-400"
               />
             </div>
@@ -180,7 +214,7 @@ export default function LoginPage() {
                 required
                 value={formData.password}
                 onChange={handleChange}
-                placeholder="Enter your password"
+                placeholder="admin123"
                 className="w-full px-4 py-3.5 rounded-xl border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all text-gray-900 placeholder-gray-400"
               />
             </div>

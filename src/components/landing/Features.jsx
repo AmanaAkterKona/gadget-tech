@@ -1,5 +1,6 @@
 import React from 'react';
 import { Zap, Shield, Truck, Headphones, Award, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 
 const Features = () => {
   const features = [
@@ -102,10 +103,12 @@ const Features = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <button className="group relative px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg rounded-full transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/60 overflow-hidden">
-            <span className="relative z-10">Explore All Features</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </button>
+          <Link href="/items">
+            <button className="group relative px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg rounded-full transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/60 overflow-hidden">
+              <span className="relative z-10">Explore All Features</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
+          </Link>
         </div>
       </div>
     </section>

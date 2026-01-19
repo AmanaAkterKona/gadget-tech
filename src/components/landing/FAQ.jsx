@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
+import Link from 'next/link';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -152,9 +153,11 @@ const FAQ = () => {
           <p className="text-gray-300 mb-6">
             Our support team is here to help you 24/7
           </p>
-          <button className="px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg rounded-full hover:from-purple-500 hover:to-pink-500 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/60">
-            Contact Support
-          </button>
+          <Link href="/contact">
+            <button className="px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg rounded-full hover:from-purple-500 hover:to-pink-500 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/60">
+              Contact Support
+            </button>
+          </Link>
         </div>
       </div>
     </section>

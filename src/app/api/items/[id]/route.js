@@ -2,12 +2,13 @@ import { NextResponse } from 'next/server';
 import items from '@/data/items.json';
 
 // GET - একটি specific item fetch করার জন্য
-export async function GET(request, { params }) {
+export async function GET(request, context) {
   try {
-    const { id } = params;
+    // params await করতে হবে
+    const { id } = await context.params;
     
     // Item খুঁজুন
-    const item = items.find(item => item.id === id || item.id === parseInt(id));
+    const item = items.find(item => item.id === parseInt(id));
     
     if (!item) {
       return NextResponse.json(
@@ -22,6 +23,7 @@ export async function GET(request, { params }) {
     });
     
   } catch (error) {
+    console.error('Error fetching item:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch item' },
       { status: 500 }
@@ -29,13 +31,13 @@ export async function GET(request, { params }) {
   }
 }
 
-// PUT - Item update করার জন্য (Optional)
-export async function PUT(request, { params }) {
+// PUT - Item update করার জন্য
+export async function PUT(request, context) {
   try {
-    const { id } = params;
+    const { id } = await context.params;
     const updates = await request.json();
     
-    const item = items.find(item => item.id === id || item.id === parseInt(id));
+    const item = items.find(item => item.id === parseInt(id));
     
     if (!item) {
       return NextResponse.json(
@@ -44,7 +46,6 @@ export async function PUT(request, { params }) {
       );
     }
     
-    // Updated item তৈরি করুন
     const updatedItem = {
       ...item,
       ...updates,
@@ -65,12 +66,12 @@ export async function PUT(request, { params }) {
   }
 }
 
-// DELETE - Item delete করার জন্য (Optional)
-export async function DELETE(request, { params }) {
+// DELETE - Item delete করার জন্য
+export async function DELETE(request, context) {
   try {
-    const { id } = params;
+    const { id } = await context.params;
     
-    const item = items.find(item => item.id === id || item.id === parseInt(id));
+    const item = items.find(item => item.id === parseInt(id));
     
     if (!item) {
       return NextResponse.json(

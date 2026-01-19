@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, ShoppingCart, Heart, Eye } from 'lucide-react';
+import Link from 'next/link';
 
 const PopularItems = () => {
   const items = [
@@ -201,15 +202,17 @@ const PopularItems = () => {
 
         {/* View All Button */}
         <div className="text-center mt-16">
-          <button className="group relative px-12 py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg rounded-full transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/60 overflow-hidden">
-            <span className="relative z-10 flex items-center gap-2">
-              View All Products
-              <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </button>
+          <Link href="/items">
+            <button className="group relative px-12 py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg rounded-full transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/60 overflow-hidden">
+              <span className="relative z-10 flex items-center gap-2">
+                View All Products
+                <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
+          </Link>
         </div>
       </div>
     </section>

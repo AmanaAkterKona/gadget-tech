@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Heart, Github } from 'lucide-react';
 import Link from 'next/link';
 import logo from "../../public/images (8).jpg"
 import Image from "next/image";
@@ -42,16 +42,29 @@ export default function Footer() {
               Your trusted destination for premium gadgets and cutting-edge technology. Experience innovation at your fingertips.
             </p>
             
-            {/* Social Links */}
+            {/* Social Links - Updated with real links */}
             <div className="flex gap-3 justify-center sm:justify-start">
-              <a href="#" className="w-9 h-9 md:w-10 md:h-10 bg-gradient-to-br from-slate-800 to-purple-900/50 backdrop-blur-xl rounded-xl flex items-center justify-center border border-purple-500/30 hover:border-purple-500 hover:scale-110 transition-all duration-300 group">
-                <Facebook className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
+              <a 
+                href="https://github.com/AmanaAkterKona" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 md:w-10 md:h-10 bg-gradient-to-br from-slate-800 to-purple-900/50 backdrop-blur-xl rounded-xl flex items-center justify-center border border-purple-500/30 hover:border-purple-500 hover:scale-110 transition-all duration-300 group"
+              >
+                <Github className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
               </a>
-              <a href="#" className="w-9 h-9 md:w-10 md:h-10 bg-gradient-to-br from-slate-800 to-purple-900/50 backdrop-blur-xl rounded-xl flex items-center justify-center border border-purple-500/30 hover:border-purple-500 hover:scale-110 transition-all duration-300 group">
-                <Instagram className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
-              </a>
-              <a href="#" className="w-9 h-9 md:w-10 md:h-10 bg-gradient-to-br from-slate-800 to-purple-900/50 backdrop-blur-xl rounded-xl flex items-center justify-center border border-purple-500/30 hover:border-purple-500 hover:scale-110 transition-all duration-300 group">
+              <a 
+                href="https://www.linkedin.com/in/amena-akter-kona/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 md:w-10 md:h-10 bg-gradient-to-br from-slate-800 to-purple-900/50 backdrop-blur-xl rounded-xl flex items-center justify-center border border-purple-500/30 hover:border-purple-500 hover:scale-110 transition-all duration-300 group"
+              >
                 <Linkedin className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
+              </a>
+              <a 
+                href="mailto:proff.kona@gmail.com"
+                className="w-9 h-9 md:w-10 md:h-10 bg-gradient-to-br from-slate-800 to-purple-900/50 backdrop-blur-xl rounded-xl flex items-center justify-center border border-purple-500/30 hover:border-purple-500 hover:scale-110 transition-all duration-300 group"
+              >
+                <Mail className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
               </a>
             </div>
           </div>
@@ -116,10 +129,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-gray-400 hover:text-purple-400 transition-colors duration-300 inline-flex items-center gap-2 group text-sm md:text-base">
+                              <li>
+                <Link href="/#faq" className="text-gray-400 hover:text-purple-400 transition-colors duration-300 inline-flex items-center gap-2 group text-sm md:text-base">
                   <span className="w-0 h-0.5 bg-purple-400 group-hover:w-4 transition-all duration-300"></span>
                   FAQ
                 </Link>
+              </li>
+
               </li>
               <li>
                 <Link href="/support" className="text-gray-400 hover:text-purple-400 transition-colors duration-300 inline-flex items-center gap-2 group text-sm md:text-base">
@@ -144,7 +160,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors duration-300 justify-center sm:justify-start text-sm md:text-base">
                 <Mail className="w-4 h-4 md:w-5 md:h-5 text-purple-400 flex-shrink-0" />
-                <a href="mailto:info@gadgettech.com">info@gadgettech.com</a>
+                <a href="mailto:proff.kona@gmail.com">proff.kona@gmail.com</a>
               </li>
             </ul>
 
@@ -175,7 +191,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 text-gray-400 text-xs md:text-sm order-1 md:order-2">
               <span>Made with</span>
               <Heart className="w-3 h-3 md:w-4 md:h-4 text-pink-500 fill-pink-500 animate-pulse" />
-              <span>by Gadget Tech Team</span>
+              <span>by Amena Akter Kona</span>
             </div>
 
             <div className="flex gap-4 md:gap-6 text-xs md:text-sm order-3">

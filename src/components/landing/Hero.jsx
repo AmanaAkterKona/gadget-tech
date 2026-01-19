@@ -2,10 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import banner1 from "../../../public/ico6.jpg"
+import Link from 'next/link';
+import banner1 from "../../../public/bann5.jpg"
 import banner2 from "../../../public/ico2.jpg"
-import banner3 from "../../../public/new1.jpg"
-import banner4 from "../../../public/gadget1.avif"
+import banner3 from "../../../public/ico6.jpg"
+import banner4 from "../../../public/Gemini_Generated_Image_v8qm97v8qm97v8qm.png"
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -39,13 +40,18 @@ const Hero = () => {
     }
   ];
 
+  // ✅ Auto slide - Fixed
   useEffect(() => {
     const timer = setInterval(() => {
-      nextSlide();
-    }, 6000);
+      if (!isAnimating) {
+        setIsAnimating(true);
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setTimeout(() => setIsAnimating(false), 800);
+      }
+    }, 5000); // 5 seconds interval
 
     return () => clearInterval(timer);
-  }, [currentSlide]);
+  }, [isAnimating]); // dependency changed
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -183,13 +189,18 @@ const Hero = () => {
                     }`}
                   >
                     <div className="flex flex-wrap gap-6">
-                      <button className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-lg rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/60 overflow-hidden">
-                        <span className="relative z-10">Explore Now</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </button>
-                      <button className="px-10 py-5 bg-white/10 backdrop-blur-xl border-2 border-white text-white font-bold text-lg rounded-xl hover:bg-white hover:text-black transition-all duration-300 hover:scale-110 hover:shadow-2xl">
-                        Learn More
-                      </button>
+                      {/* ✅ Explore Now button - Items page e niye jabe */}
+                      <Link href="/items">
+                        <button className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-lg rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/60 overflow-hidden">
+                          <span className="relative z-10">Explore Now</span>
+                          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </button>
+                      </Link>
+                      <Link href="/shipping">
+                        <button className="px-10 py-5 bg-white/10 backdrop-blur-xl border-2 border-white text-white font-bold text-lg rounded-xl hover:bg-white hover:text-black transition-all duration-300 hover:scale-110 hover:shadow-2xl">
+                          Learn More
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -244,13 +255,21 @@ const Hero = () => {
       {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-white/10 z-20">
         <div 
-          className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-6000 ease-linear"
-          style={{ 
-            width: isAnimating ? '0%' : '100%',
-            transition: isAnimating ? 'none' : 'width 6000ms linear'
+          key={currentSlide}
+          className="h-full bg-gradient-to-r from-blue-500 to-cyan-500"
+          style={{
+            animation: 'progress 5s linear',
+            animationPlayState: isAnimating ? 'paused' : 'running'
           }}
         ></div>
       </div>
+
+      <style jsx>{`
+        @keyframes progress {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+      `}</style>
     </section>
   );
 };

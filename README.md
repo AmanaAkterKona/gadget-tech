@@ -2,7 +2,7 @@
 
 A feature-rich, full-stack e-commerce web application built with Next.js 14, featuring user authentication, product management, shopping cart, and a stunning modern UI.
 
-![GadgetTech Banner]([https://via.placeholder.com/800x400/6366f1/ffffff?text=Home+Page](https://i.ibb.co.com/TBXbwgPN/Screenshot-35.png))
+![GadgetTech Banner][https://via.placeholder.com/800x400/6366f1/ffffff?text=Home+Page](https://i.ibb.co.com/TBXbwgPN/Screenshot-35.png)
 
 ## 🌟 Features
 
@@ -571,13 +571,13 @@ Need help? We're here for you!
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page]([https://via.placeholder.com/800x400/6366f1/ffffff?text=Home+Page](https://i.ibb.co.com/TBXbwgPN/Screenshot-35.png))
+![Home Page][https://via.placeholder.com/800x400/6366f1/ffffff?text=Home+Page](https://i.ibb.co.com/TBXbwgPN/Screenshot-35.png)
 
 ### Products Page
-![Products]([https://via.placeholder.com/800x400/ec4899/ffffff?text=Products+Page](https://i.ibb.co.com/mFVxNhzC/Screenshot-38.png))
+![Products][https://via.placeholder.com/800x400/ec4899/ffffff?text=Products+Page](https://i.ibb.co.com/mFVxNhzC/Screenshot-38.png)
 
 ### Add Item Page
-![Add Item]([https://via.placeholder.com/800x400/8b5cf6/ffffff?text=Add+Item+Page](https://i.ibb.co.com/Z1VRvPsp/Screenshot-39.png))
+![Add Item][https://via.placeholder.com/800x400/8b5cf6/ffffff?text=Add+Item+Page](https://i.ibb.co.com/Z1VRvPsp/Screenshot-39.png)
 
 ---
 

@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react"; // Suspense ইমপোর্ট করা হয়েছে
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-// মূল ফর্ম লজিকটি আলাদা কম্পোনেন্টে রাখা হয়েছে
+// Main form logic in separate component
 function AddItemContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -28,9 +28,10 @@ function AddItemContent() {
   }, []);
 
   const checkAuth = () => {
+    // Check for 'auth' cookie (not 'isLoggedIn')
     const cookies = document.cookie.split(';');
     const isLoggedIn = cookies.some(cookie => 
-      cookie.trim().startsWith('isLoggedIn=true')
+      cookie.trim().startsWith('auth=true')
     );
     
     if (!isLoggedIn) {
@@ -255,7 +256,7 @@ function AddItemContent() {
   );
 }
 
-// মেইন পেজ যা Suspense দিয়ে র‍্যাপ করা
+// Main page wrapped with Suspense
 export default function AddItemPage() {
   return (
     <Suspense fallback={
